@@ -15,3 +15,14 @@ You can install the package through GitHub using
 ``` r
 devtools::install_github("CamSims/myfirstpackage")
 ```
+
+To view the vignette:
+
+``` r
+devtools::install_github("CamSims/myfirstpackage", build_vignette = TRUE, build_opts = c())
+library("myfirstpackage")
+# Use this to view the vignette in the myfirstpackge HTML help
+help(package = "myfirstpackage", help_type = "html")
+# Use this to view the vignette as an isolated HTML file
+utils::browseVignettes(package = "myfirstpackage")
+```
