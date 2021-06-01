@@ -1,0 +1,14 @@
+Package: myfirstpackage
+Title: Project 3 Package for STAT 302
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Cameron",
+           family = "Sims",
+           role = c("aut", "cre"),
+           email = "simsc3@uw.edu")
+Description: This is the first package I have created for Project 3, STAT 302.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
