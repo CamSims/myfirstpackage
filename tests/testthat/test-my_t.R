@@ -1,3 +1,8 @@
+test_that("alternative is usable", {
+  expect_error(my_t.test(rnorm(100, 0, 1), "dog", 3),
+        "The alternative hypothesis must be 'two.sided', 'less', or 'greater'.")
+})
+
 test_that("two.sided works", {
   set.seed(123)
   x <- rnorm(100, 0, 1)

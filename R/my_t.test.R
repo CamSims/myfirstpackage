@@ -35,8 +35,7 @@ my_t.test <- function(x, alternative, mu) {
     }
     # If alternative none of three, provide informative error
   } else {
-    stop("The alternative hypothesis must be 'two.sided', 'less',
-         or 'greater'.")
+    stop("The alternative hypothesis must be 'two.sided', 'less', or 'greater'.")
   }
   # Return list containing one-sample t-test results
   t_results <- list("test_stat" = test_stat, "df" = df,
