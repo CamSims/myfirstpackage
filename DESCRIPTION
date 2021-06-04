@@ -27,12 +27,10 @@ Imports:
     class,
     randomForest,
     magrittr
-Collate: 
-    'f_to_c.R'
+Collate:
     'my_gapminder.R'
     'my_lm.R'
     'my_penguins.R'
-    'my_pow.R'
     'my_rf_cv.R'
     'my_t.test.R'
     'my_knn_cv.R'
