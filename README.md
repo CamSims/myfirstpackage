@@ -16,6 +16,8 @@ You can install the package through GitHub using
 devtools::install_github("CamSims/myfirstpackage")
 ```
 
+## Use
+
 To view the vignette:
 
 ``` r
