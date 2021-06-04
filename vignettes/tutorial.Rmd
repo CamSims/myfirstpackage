@@ -36,6 +36,7 @@ To begin, we load the package.
 
 ```{r setup}
 library(myfirstpackage)
+library("ggplot2")
 ```
 
 # my_t.test Tutorial
@@ -68,3 +69,41 @@ my_t.test(x = dat, alternative = "greater", mu = 60)
 
 Using the $\alpha = 0.05$ cutoff, the p-value of $.9533$ means the null
 hypothesis can not be rejected. The data suggests $mu = 60$ is a valid value.
+
+
+# my_lm Tutorial
+
+This section will demonstrate how to use the my_lm() function.
+
+```{r}
+# Performing linear regression on lifeExp using gdpPercap and continent
+model <- my_lm(lifeExp ~ gdpPercap + continent, data = my_gapminder)
+
+# Show the model
+model
+```
+
+The gdpPercap coefficient indicates that a unit increase results in an increase
+of roughly .0004 in life expectancy. Let $\beta_{1}$ be the coefficient. The
+hypothesis test associated with this is then $H_{0}: \beta_{1} = 0$,
+$H_{a}:\beta_{1} \neq 0$. The associated p-value is very close to 0, so a
+cut-off of $\alpha = 0.05$ results in rejection of the null hypothesis. In other
+words, the data suggests $\beta_{1}$ is not $0$.
+
+```{r}
+# Calculate fitted values
+fitted <- model$Estimate[1] + model$Estimate[2] * my_gapminder$gdpPercap +
+  model$Estimate[2] * (my_gapminder$continent == "Americas") +
+  model$Estimate[3] * (my_gapminder$continent == "Asia") + 
+  model$Estimate[4] * (my_gapminder$continent == "Europe") +
+  model$Estimate[5] * (my_gapminder$continent == "Oceania")
+  
+# Plot Actual vs Fitted Values
+ggplot(mapping = aes(x = fitted, y = my_gapminder$lifeExp)) + geom_line() +
+  labs(title = "Actual Vs Fitted Values") +
+  xlab("Fitted Value") +
+  ylab("Actual Value")
+```
+
+From the plot, it appears the fitted values don't match the actual values very
+well. This means the model fit isn't very good.

@@ -26,7 +26,8 @@ Imports:
     dplyr,
     class,
     randomForest,
-    magrittr
+    magrittr,
+    ggplot2
 Collate:
     'my_gapminder.R'
     'my_lm.R'
