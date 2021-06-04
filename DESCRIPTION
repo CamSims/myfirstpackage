@@ -25,7 +25,8 @@ Imports:
     stats,
     dplyr,
     class,
-    randomForest
+    randomForest,
+    magrittr
 Collate: 
     'f_to_c.R'
     'my_gapminder.R'
@@ -35,3 +36,4 @@ Collate:
     'my_rf_cv.R'
     'my_t.test.R'
     'my_knn_cv.R'
+    'utils-pipe.R'
