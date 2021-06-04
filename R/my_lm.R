@@ -15,14 +15,15 @@
 #'
 #' @export
 my_lm <- function(formula, data) {
-  x_mat <- model.matrix(object = formula, data = data)
-  y_mat <- model.response(model.frame(formula = formula, data = data))
+  x_mat <- stats::model.matrix(object = formula, data = data)
+  y_mat <- stats::model.response(stats::model.frame(formula = formula,
+                                                    data = data))
   beta_hat <- solve(t(x_mat) %*% x_mat) %*% t(x_mat) %*% y_mat
   df <- length(data[[1]]) - length(beta_hat)
   variance <- sum((y_mat - x_mat %*% beta_hat)**2) / df
   se <- sqrt(diag(variance * solve(t(x_mat) %*% x_mat)))
   test_stat <- beta_hat / se
-  p_vals <- 2 * pt(abs(test_stat), df, lower.tail = FALSE)
+  p_vals <- 2 * stats::pt(abs(test_stat), df, lower.tail = FALSE)
   results <- data.frame(
     "Estimate" = beta_hat,
     "Std. Error" = se,
