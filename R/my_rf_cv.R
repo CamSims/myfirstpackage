@@ -9,9 +9,6 @@
 #'
 #' @return A numeric with the cross-validation error
 #'
-#' @import dplyr
-#' @importFrom dplyr %>%
-#' @name %>%
 #'
 #' @examples
 #' my_rf_cv(5)
@@ -19,7 +16,6 @@
 #'
 #' @export
 my_rf_cv <- function(k) {
-  requireNamespace("dplyr")
   # Create data from penguins, omitting na values
   dat <- stats::na.omit(my_penguins %>% dplyr::select("body_mass_g",
                                                       "bill_length_mm",

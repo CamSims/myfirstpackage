@@ -34,3 +34,4 @@ Collate:
     'my_pow.R'
     'my_rf_cv.R'
     'my_t.test.R'
+    'my_knn_cv.R'
