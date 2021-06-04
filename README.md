@@ -6,7 +6,10 @@
 [![codecov](https://codecov.io/gh/CamSims/myfirstpackage/branch/master/graph/badge.svg?token=1EGFJE76Z4)](https://codecov.io/gh/CamSims/myfirstpackage)
 <!-- badges: end -->
 
-The goal of myfirstpackage is to ...
+The goal of myfirstpackage is to perform statistical inference and prediction
+methods on a variety of data. The methods included are t-test, linear modeling,
+k-nearest neighbors with cross validation, and random forests with cross
+validation.
 
 ## Installation
 
