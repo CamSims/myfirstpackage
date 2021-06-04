@@ -39,3 +39,32 @@ library(myfirstpackage)
 ```
 
 # my_t.test Tutorial
+
+This section will demonstrate how to use the my_t.test() function.
+
+```{r}
+# Use the lifeExp data from my_gapminder
+dat <- my_gapminder$lifeExp
+
+# Demonstrate a test of the hypothesis H0: mu = 60, Ha: mu != 60
+my_t.test(x = dat, alternative = "two.sided", mu = 60)
+```
+At a cutoff of $\alpha = 0.05$, the p-value of $0.0932$ means the null
+hypothesis can not be rejected. In other words, $60$ is a valid value for $\mu$.
+
+```{r}
+# Demonstrate a test of the hypothesis H0: mu = 60, Ha: mu < 60
+my_t.test(x = dat, alternative = "less", mu = 60)
+```
+
+Using the $\alpha = 0.05$ cutoff, the p-value of $0.0466$ means the null
+hypothesis can be rejected. In other words, the data suggests $\mu$ is less than
+$60$.
+
+```{r}
+# Demonstrate a test of the hypothesis H0: mu = 60, Ha: mu > 60
+my_t.test(x = dat, alternative = "greater", mu = 60)
+```
+
+Using the $\alpha = 0.05$ cutoff, the p-value of $.9533$ means the null
+hypothesis can not be rejected. The data suggests $mu = 60$ is a valid value.
