@@ -26,3 +26,11 @@ Imports:
     dplyr,
     class,
     randomForest
+Collate: 
+    'f_to_c.R'
+    'my_gapminder.R'
+    'my_lm.R'
+    'my_penguins.R'
+    'my_pow.R'
+    'my_rf_cv.R'
+    'my_t.test.R'
