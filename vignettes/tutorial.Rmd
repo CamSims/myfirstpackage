@@ -10,13 +10,32 @@ vignette: >
 
 # Introduction
 
-```{r, include = FALSE}
+This package was designed for my UW STAT 302 course's Project 3. It contains
+four methods for performing statistical inference/prediction:
+\begin{itemize}
+\item Linear Regression
+\item T-Test
+\item K-Nearest Neighbors with Cross-Validation
+\item Random Forests with Cross Validation
+\end{itemize}
+
+```{r, include = FALSE, echo = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 ```
 
+To install this package through Github, use
+
+```{r, eval = FALSE}
+devtools::install_github("CamSims/myfirstpackage")
+```
+
+To begin, we load the package.
+
 ```{r setup}
 library(myfirstpackage)
 ```
+
+# my_t.test Tutorial

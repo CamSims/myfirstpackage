@@ -7,9 +7,9 @@
 <!-- badges: end -->
 
 The goal of myfirstpackage is to perform statistical inference and prediction
-methods on a variety of data. The methods included are t-test, linear modeling,
-k-nearest neighbors with cross validation, and random forests with cross
-validation.
+methods on a variety of data. The methods included are t-test, linear
+regression, k-nearest neighbors with cross validation, and random forests with 
+cross validation.
 
 ## Installation
 
