@@ -107,3 +107,44 @@ ggplot(mapping = aes(x = fitted, y = my_gapminder$lifeExp)) + geom_line() +
 
 From the plot, it appears the fitted values don't match the actual values very
 well. This means the model fit isn't very good.
+
+
+# my_knn_cv Tutorial
+
+```{r}
+# Remove NA values and select training columns
+train_dat <- na.omit(my_penguins)[c("bill_length_mm", "bill_depth_mm",
+                  "flipper_length_mm", "body_mass_g")]
+
+# Omit NA values and select classifying column
+correct <- data.frame("species" = na.omit(my_penguins)$species)
+
+# Arrays to hold results
+training_errors <- c()
+cv_misclass <- c()
+
+# Perform k nearest_neighbors
+for (k in 1:10) {
+  results <- my_knn_cv(train_dat, correct, k_nn = k, k_cv = 5)
+  cv_misclass[k] <- results$cv_err
+  training_errors[k] <- mean(results$class != correct$species)
+}
+
+# Find model with least training error
+least_train <- which.min(training_errors)
+
+# Find model with least cv misclassification rate
+least_cv_misclass <- which.min(cv_misclass)
+```
+
+The model to choose based on the training misclassification rates is the one
+using `r least_train` neighbors. The model to choose based on CV
+misclassification rates is the one that uses `r least_cv_misclass` neighbors. In
+practice, you would choose the model that uses `r least_cv_misclass` neighbors.
+CV (cross-validation) means the method is splitting the data into a given number
+of folds, in this case 5, then going one fold at a time. It uses the current
+fold as its testing data and all other folds training data. This allows the
+method to evaluate the performance of the covariates on data that was not used
+to train it. The model chosen to use in practice has the lowest CV
+misclassification rate, which means it can better predict new data that is added
+to it.
