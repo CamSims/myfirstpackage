@@ -90,13 +90,15 @@ cut-off of $\alpha = 0.05$ results in rejection of the null hypothesis. In other
 words, the data suggests $\beta_{1}$ is not $0$.
 
 ```{r}
+# Calculate beta for fitted values
+beta <- model$Estimate
+
+# Calculate x for fitted values
+x <- model.matrix(lifeExp ~ gdpPercap + continent, data = my_gapminder)
+
 # Calculate fitted values
-fitted <- model$Estimate[1] + model$Estimate[2] * my_gapminder$gdpPercap +
-  model$Estimate[2] * (my_gapminder$continent == "Americas") +
-  model$Estimate[3] * (my_gapminder$continent == "Asia") + 
-  model$Estimate[4] * (my_gapminder$continent == "Europe") +
-  model$Estimate[5] * (my_gapminder$continent == "Oceania")
-  
+fitted <- x %*% beta
+
 # Plot Actual vs Fitted Values
 ggplot2::ggplot(mapping = ggplot2::aes(x = fitted, y = my_gapminder$lifeExp)) + 
   ggplot2::geom_line() +
